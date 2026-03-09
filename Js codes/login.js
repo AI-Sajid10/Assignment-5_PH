@@ -8,6 +8,6 @@ signInBtn.addEventListener('click',()=>{
         window.location.assign('home.html');
     }
     else{
-        alert("Sign In Failed. Please check your username and password.");
+        alert("Sign In Failed. Please check your username and password");
     }
 });
