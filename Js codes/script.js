@@ -25,7 +25,7 @@ function toggleStyle(id) {
   selected.classList.add("btn-primary");
 }
 
-const loadIssuesCard = async (status) => {
+const loadIssuesCard = async (status)=>{
   Spinner(true);
   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
   const res = await fetch(url);
@@ -34,22 +34,22 @@ const loadIssuesCard = async (status) => {
 };
 
 loadIssuesCard("all");
-filterBtns.forEach((btn) => {
-  if (btn.innerText.trim().toLowerCase() === "all") {
+filterBtns.forEach((btn)=>{
+  if (btn.innerText.trim().toLowerCase() === "all"){
     btn.classList.remove("btn-outline");
     btn.classList.add("btn-primary");
   }
 });
 
-filterBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
+filterBtns.forEach((btn)=>{
+  btn.addEventListener("click", ()=>{
     const status = btn.innerText.trim().toLowerCase(); 
     toggleStyle(btn.id); 
     loadIssuesCard(status);
   });
 });
 
-const createElements = (arr) => {
+const createElements = (arr)=>{
   const htmlEliments = arr.map(
     (el) => `
      <p class="px-4 py-1 text-[12px] rounded-full 
@@ -75,18 +75,18 @@ const createElements = (arr) => {
   return htmlEliments.join(" ");
 };
 
-const displayCard = (cardData, status="all") => {
+const displayCard = (cardData, status="all")=>{
   issuesCardContainer.innerHTML = "";
 
-  if (status === "open") {
+  if(status === "open"){
     filteredData = cardData.filter((data) => data.status === "open");
-  } else if (status === "closed") {
+  } else if(status === "closed"){
     filteredData = cardData.filter((data) => data.status === "closed");
-  } else {
+  } else{
     filteredData = cardData;
   }
 
-  filteredData.forEach((data) => {
+  filteredData.forEach((data)=>{
    
     const cardContent = document.createElement("div");
 
